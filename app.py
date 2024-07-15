@@ -8,13 +8,16 @@ with open('model_prediksi.pkl', 'rb') as file:
 
 st.title("Prediksi Produksi Padi")
 
-Luas_panen = st.number_input("Luas Panen")
-Curah_hujan = st.number_input("Curah hujan")
-Kelembapan = st.number_input("Kelembapan")
-Suhu_ratarata = st.number_input("Suhu rata-rata")
+# Luas Panen dengan batasan minimal dan maksimal, dan satuan hektar
+Luas_panen = st.number_input("Luas Panen (hektar)", min_value=0.0, max_value=1000000.0, format="%.2f")
+# Curah Hujan dengan satuan mm
+Curah_hujan = st.number_input("Curah hujan (mm)", format="%.2f")
+# Kelembapan dengan satuan persen
+Kelembapan = st.number_input("Kelembapan (%)", format="%.2f")
+# Suhu Rata-rata dengan satuan derajat Celsius
+Suhu_ratarata = st.number_input("Suhu rata-rata (°C)", format="%.2f")
 
 if st.button("Prediksi"):
     features = np.array([[Luas_panen, Curah_hujan, Kelembapan, Suhu_ratarata]])
     prediction = model.predict(features)
-    st.write(f"Produksi Padi yang Diprediksi: {prediction[0]:.2f}")
-
+    st.write(f"Produksi Padi yang Diprediksi: {prediction[0]:.2f} ton")
