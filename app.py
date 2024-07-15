@@ -6,7 +6,7 @@ import numpy as np
 with open('model_prediksi.pkl', 'rb') as file:
     model = pickle.load(file)
 
-st.title("Prediksi Hasil Produksi Padi (Akurasi 93,54%")
+st.title("Prediksi Hasil Produksi Padi")  # Mengganti judul
 
 # Luas Panen dengan batasan minimal dan maksimal, dan satuan hektar
 Luas_panen = st.number_input("Luas Panen (hektar)", min_value=0.0, max_value=1000000.0, format="%.2f")
@@ -21,3 +21,7 @@ if st.button("Prediksi"):
     features = np.array([[Luas_panen, Curah_hujan, Kelembapan, Suhu_ratarata]])
     prediction = model.predict(features)
     st.write(f"Produksi Padi yang Diprediksi: {prediction[0]:.2f} ton")
+
+# Informasi Akurasi Model
+st.markdown("**Informasi Model:**")
+st.markdown("Model ini memiliki akurasi sebesar 93,54% dalam memprediksi hasil produksi padi.")
