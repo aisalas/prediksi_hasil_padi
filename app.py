@@ -6,7 +6,7 @@ import numpy as np
 with open('model_prediksi.pkl', 'rb') as file:
     model = pickle.load(file)
 
-st.title("Prediksi Produksi Padi")
+st.title("Prediksi Hasil Produksi Padi (Akurasi 93,54%")
 
 # Luas Panen dengan batasan minimal dan maksimal, dan satuan hektar
 Luas_panen = st.number_input("Luas Panen (hektar)", min_value=0.0, max_value=1000000.0, format="%.2f")
