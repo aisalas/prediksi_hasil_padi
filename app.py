@@ -9,8 +9,7 @@ with open('model_prediksi.pkl', 'rb') as file:
 st.title("Prediksi Hasil Produksi Padi")  # Mengganti judul
 
 # Informasi Akurasi Model
-st.markdown("**Informasi Model:**")
-st.markdown("Model ini memiliki akurasi sebesar 93,54% dalam memprediksi hasil produksi padi.")
+st.markdown("**Model ini memiliki akurasi sebesar 93,54% dalam memprediksi hasil produksi padi.**")
 
 # Luas Panen dengan batasan minimal dan maksimal, dan satuan hektar
 Luas_panen = st.number_input("Luas Panen (hektar)", min_value=0.0, max_value=1000000.0, format="%.2f")
